@@ -7,4 +7,4 @@ const NewsController = {
     },
 };
 
-module.exports = NewsController;
+export default NewsController;

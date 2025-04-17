@@ -8,4 +8,4 @@ const SiteController = {
     },
 };
 
-module.exports = SiteController;
+export default SiteController;

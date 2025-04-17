@@ -1,9 +1,9 @@
-const newsRouter = require('./news.route');
-const siteRouter = require('./site.route');
+import newsRouter from './news.route.js';
+import siteRouter from './site.route.js';
 
 function route(app) {
     app.use('/news', newsRouter);
     app.use('/', siteRouter);
 }
 
-module.exports = route;
+export default route;

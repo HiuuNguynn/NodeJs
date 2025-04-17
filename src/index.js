@@ -1,10 +1,15 @@
-const express = require('express');
-const path = require('path');
-const morgan = require('morgan');
-const handlebars = require('express-handlebars');
+import express from 'express';
+import path from 'path';
+import morgan from 'morgan';
+import handlebars from 'express-handlebars';
+import route from './routes/index.route.js';
+import { fileURLToPath } from 'url';
+import db from './config/db/index.js';
 
-const route = require('./routes/index.route');
+//Connect to DB
+db.connect();
 
+// Import routes
 const app = express();
 const port = 3000;
 
@@ -12,6 +17,9 @@ const port = 3000;
 // app.use(morgan('combined'));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 // Static files
 app.use(express.static(path.join(__dirname, 'public')));
